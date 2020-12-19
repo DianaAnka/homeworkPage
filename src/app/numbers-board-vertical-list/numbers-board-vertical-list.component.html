@@ -1,0 +1,11 @@
+<ul class="vertical-container">
+
+  <li [@itemsAnimation]="{value: list.length,params:{delay: time}}" class="vertical-item"
+    *ngFor="let item of list ;let index=index" [style.font-size.vh]="valueFontSize">
+    <div class="item">
+      <b mat-ripple class="value">{{item}}</b>
+    </div>
+  </li>
+
+</ul>
+<mat-progress-bar mode="determinate" [value]="(currentIndex * 100) / list.length"></mat-progress-bar>

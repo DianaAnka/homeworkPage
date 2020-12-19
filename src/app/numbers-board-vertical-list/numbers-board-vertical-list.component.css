@@ -1,0 +1,47 @@
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+mat-progress-bar {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+}
+
+.vertical-container {
+  width: fit-content;
+  height: fit-content;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary);
+}
+
+.vertical-item {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 8vh 1fr;
+}
+
+.vertical-item .sign {
+  grid-column: 1;
+  text-align: center;
+  line-height: 2;
+}
+
+.vertical-item .value {
+  grid-column: 2;
+  text-align: right;
+  cursor: pointer;
+}

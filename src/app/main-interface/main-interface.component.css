@@ -1,0 +1,19 @@
+.left-side-container {
+  background: #fdf2f9;
+  min-width: 20%;
+  min-height: 40%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 35;
+}
+button {
+  font-size: larger;
+  border-radius: 110vh;
+  background: var(--primary);
+  color: var(--backgroundColor);
+  height: 5vh;
+  border: 0;
+  width: 10vh;
+}

@@ -1,0 +1,423 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+// @import '~@angular/material/theming';
+// @include mat-core();
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #da4799;
+  --primaryLight: #d66c84;
+  --secondary: #694ea0;
+  --secondaryLight: #b493ab;
+  --backgroundColor: #fdf2f9;
+  --lightFontColor: rgba(0, 0, 0, 0.34);
+  --lightDark: #efe7d1;
+  --dark: #c49c93;
+  --white: white;
+  --subBackground: #f5eef2;
+  --shadow: 0 0px 2px rgba(0, 0, 0, 0.46);
+  --liteBlue: #c6e6d9;
+  --gray: rgb(128, 128, 128);
+  --light-gray: #EAE3E7;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+*:focus {
+  outline: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--backgroundColor);
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+@media print {
+  body {
+    overflow: visible !important;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+body {
+  font-family: "SwissraCondensed", Fallback, sans-serif !important;
+}
+
+@font-face {
+  font-family: "SwissraCondensed";
+  src: url("assets/fonts/SwissraCondensed-Normal.otf") format("opentype");
+}
+
+/* Scroll bar Archer style  */
+/* width */
+// ::-webkit-scrollbar {
+//   width: 10px;
+//   height: 5px;
+// }
+/* Scroll bar Archer style  */
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+  opacity: 0;
+  transition: all ease-in-out 0.5s;
+}
+
+:hover::-webkit-scrollbar {
+  opacity: 1;
+  transition: all ease-in-out 0.5s;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.purple-button,
+.pink-button,
+.pink-purple-button {
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  padding-right: 1.5rem;
+  border-radius: 50%;
+  color: white;
+}
+
+// global circle class
+.circle {
+  // min-width: 1em;
+  border-radius: 50%;
+}
+
+.circle:before {
+  content: "";
+  float: left;
+  width: auto;
+  padding-bottom: 100%;
+}
+.mxw-10 {
+  max-width: 10% !important;
+}
+.mxw-20 {
+  max-width: 20% !important;
+}
+.mxw-30 {
+  max-width: 30% !important;
+}
+.mxw-40 {
+  max-width: 40% !important;
+}
+.mxw-50 {
+  max-width: 50% !important;
+}
+.mxw-60 {
+  max-width: 60% !important;
+}
+.mxw-70 {
+  max-width: 70% !important;
+}
+.mxw-80 {
+  max-width: 80% !important;
+}
+.mxw-90 {
+  max-width: 90% !important;
+}
+.mxw-100 {
+  max-width: 100% !important;
+}
+
+/*** global form styles ****/
+header#dialog-header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 16.5vh;
+  left: calc(50vw - 37.5vh);
+  margin: -1rem 0;
+  padding: 1rem 0;
+
+  & label {
+    background: var(--backgroundColor);
+    color: var(--primary);
+    padding: 0.5rem;
+    margin: -0.4rem;
+    border-radius: 3rem 3rem 0.2rem 0.2rem;
+    border: 1px solid var(--primary);
+    width: 50%;
+    text-align: center;
+  }
+}
+
+.app-global-form-dialog {
+  // margin: 0;
+  margin-bottom: 8vh;
+  margin-top: 17vh;
+  width: 75vh;
+  height: 75vh;
+  align-self: flex-end;
+
+  & mat-dialog-container {
+    border-radius: 50%;
+    border: 0.1rem solid var(--primary);
+    background: var(--backgroundColor);
+    overflow: visible;
+    padding: 0;
+    position: relative;
+  }
+
+  & header#dialog-header {
+    top: -1vh;
+    left: 0;
+  }
+
+  & .dialog {
+    &-container {
+      position: relative;
+      overflow: hidden;
+      width: 96%;
+      height: 96%;
+      transform: translate(0, 8px);
+      margin: auto;
+      top: 0.65vh;
+    }
+    &-form-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+      max-height: 100%;
+    }
+    &-form-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 100%;
+      // max-width: 70%;
+    }
+    &-form-field {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      // margin: auto 0.5rem;
+      // max-width: 40%;
+    }
+  }
+
+  & .bottom-half-circle {
+    bottom: -7.5vh;
+  }
+}
+
+.dialog-blur-backdrop {
+  backdrop-filter: blur(4px);
+  background: #00000088;
+}
+.dialog-blur-panel {
+  width: 100vw;
+  max-width: 100vw !important;
+  height: 100vh;
+  & mat-dialog-container {
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+  }
+}
+// TODO: move it to component scss
+.bottom-half-circle {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  height: 12vh;
+  // overflow: hidden;
+  position: absolute;
+  bottom: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: -8px 0;
+  padding: 8px 0;
+  z-index: 1000;
+  &-container {
+    display: flex;
+    justify-content: center;
+    width: 40vh;
+    height: 20vh;
+    padding: 8px 0;
+    margin: -8px 0;
+    text-align: center;
+    color: white;
+    border-top-left-radius: 80vh;
+    border-top-right-radius: 80vh;
+    overflow: hidden;
+  }
+
+  &-content {
+    height: 12vh;
+    width: 80%;
+    padding: 2vh 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+}
+
+/* footer */
+.dialog-actions {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+.action-button {
+  color: white;
+  font-size: 1.1rem;
+}
+.vertical-line {
+  width: 3px;
+  height: 100%;
+  background: white;
+}
+
+// // angular material styles overwrite
+// .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+//   padding-bottom: .75em;
+// }
+// .mat-form-field-appearance-legacy .mat-form-field-underline {
+//   bottom: .75em;
+// }
+// input.mat-input-element {
+//   height: 1.7rem;
+// }
+// .mat-form-field-label {
+//   height: 1.3rem;
+// }
+.field-white-colors {
+  color: white;
+}
+.field-white-colors input:disabled {
+  color: white;
+}
+.field-white-colors mat-label {
+  color: white;
+}
+.field-white-colors .mat-select-value {
+  color: white;
+}
+.field-white-colors .mat-form-field-underline {
+  background-color: white;
+}
+
+.cursor-default {
+  cursor: default portant;
+}
+.cursor-pointer {
+  cursor: pointer !important;
+}
+.no-clicks {
+  pointer-events: none;
+}
+.rtl {
+  direction: rtl;
+}
+.color-white {
+  color: white !important;
+}
+.op-0 {
+  opacity: 0 !important;
+}
+.op-25 {
+  opacity: 0.25 !important;
+}
+.op-50 {
+  opacity: 0.5 !important;
+}
+.op-75 {
+  opacity: 0.75 !important;
+}
+.op-100 {
+  opacity: 1 !important;
+}
+.test-material-menu {
+  width: 150px;
+  height: 240px;
+  overflow: auto !important;
+  position: absolute;
+  right: 150px;
+  top: -85px;
+}
+
+.editable-image {
+  position: relative;
+}
+.editable-image .edit-handler {
+  width: 24%;
+}
+.editable-image .edit-handler {
+  position: absolute;
+  top: 12%;
+  right: 12%;
+  opacity: 0;
+}
+.editable-image:hover .edit-handler {
+  opacity: 0.5;
+}
+.editable-image .edit-handler:hover {
+  opacity: 1;
+}
+
+.secondary-select-color {
+  background: var(--secondary);
+  color: white;
+}
+
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
