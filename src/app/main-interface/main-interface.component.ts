@@ -8,10 +8,19 @@ import { Component, Injectable, OnInit } from '@angular/core';
 })
 @Injectable({ providedIn: 'root' })
 export class MainInterfaceComponent implements OnInit {
+  /*
+  variable to detrmaine the display type
+
+*/
+  displayType: string = 'vertical';
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
   login() {
-    this.router.navigateByUrl('home');
+    if (this.displayType == 'vertical') this.router.navigateByUrl('vertical');
+    else if (this.displayType == 'flashes')
+      this.router.navigateByUrl('flashes');
   }
+  onFinish() {}
 }

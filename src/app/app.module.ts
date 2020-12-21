@@ -8,12 +8,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NumbersBoardVerticalListComponent } from './numbers-board-vertical-list/numbers-board-vertical-list.component';
 import { SharedModule } from '../shared/shared.module';
+import { ResultComponent } from './result/result.component';
+import { NumbersBoardFlashesListComponent } from './numbers-board-flashes-list/numbers-board-flashes-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainInterfaceComponent,
     NumbersBoardVerticalListComponent,
+    ResultComponent,
+    NumbersBoardFlashesListComponent,
   ],
   imports: [
     BrowserModule,

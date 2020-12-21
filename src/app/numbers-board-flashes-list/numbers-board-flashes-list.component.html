@@ -1,0 +1,13 @@
+<div class="number-container">
+  <b
+    *ngIf="viewedValue"
+    [@fadeInOut]="'in'"
+    [style.font-size.vw]="valueFontSize"
+  >
+    {{ viewedValue }}
+  </b>
+</div>
+<mat-progress-bar
+  mode="determinate"
+  [value]="(currentIndex * 100) / list.length"
+></mat-progress-bar>

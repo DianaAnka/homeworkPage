@@ -133,6 +133,9 @@ export class NumbersBoardVerticalListComponent implements OnInit {
         complete: () => this.onFinish.emit(),
       });
   }
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
+  }
 
   /**
    * getter that dynamically calculate a font size depend on viewed numbers list length
