@@ -6,10 +6,12 @@ import { NumbersBoardVerticalListComponent } from './numbers-board-vertical-list
 import { ResultComponent } from './result/result.component';
 
 const routes: Routes = [
-  { path: '', component: MainInterfaceComponent },
-  { path: 'vertical', component: NumbersBoardVerticalListComponent },
-  { path: 'flashes', component: NumbersBoardFlashesListComponent },
-  { path: 'result', component: ResultComponent },
+ {path:'' , component:MainInterfaceComponent},
+ { path: 'home', component: MainInterfaceComponent },
+ {path:'vertical', component:NumbersBoardVerticalListComponent},
+ {path:'flashes' , component:NumbersBoardFlashesListComponent},
+ {path:'result' , component:ResultComponent},
+ { path: '**', component: MainInterfaceComponent }
 ];
 
 @NgModule({

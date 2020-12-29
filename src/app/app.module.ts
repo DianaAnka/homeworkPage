@@ -27,7 +27,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    NgbModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

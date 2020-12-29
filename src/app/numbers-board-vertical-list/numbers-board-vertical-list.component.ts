@@ -88,8 +88,9 @@ export class NumbersBoardVerticalListComponent implements OnInit {
     );
     //timer To route the result component
     setTimeout(() => {
-      this.router.navigateByUrl('result');
-    }, 20000);
+      this.router.navigate(['result']);
+      console.log('Done');
+    }, parseFloat(time));
   }
   initValuesController(obs: Observable<any>) {
     return obs
@@ -132,7 +133,7 @@ export class NumbersBoardVerticalListComponent implements OnInit {
       });
   }
   ngOnDestroy(): void {
-    //  this.subscription$.unsubscribe();
+    this.subscription$.unsubscribe();
   }
 
   /**
