@@ -10,6 +10,8 @@ import { NumbersBoardVerticalListComponent } from './numbers-board-vertical-list
 import { SharedModule } from '../shared/shared.module';
 import { ResultComponent } from './result/result.component';
 import { NumbersBoardFlashesListComponent } from './numbers-board-flashes-list/numbers-board-flashes-list.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { NumbersBoardFlashesListComponent } from './numbers-board-flashes-list/n
     NumbersBoardFlashesListComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     SharedModule,

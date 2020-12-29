@@ -1,0 +1,62 @@
+.left-side-container {
+  text-align: center;
+  background: #fdf2f9;
+  min-width: 20%;
+  min-height: 40%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 35;
+}
+.subDiv {
+  display: flex;
+  flex-direction: column;
+}
+.textInput {
+  text-align: right;
+  padding: 0 10px;
+  color: var(--secondary);
+  width: 50vw;
+  border-radius: 110px;
+  background-color: var(--backgroundColor);
+  border: solid 2px var(--primary);
+  font-size: large;
+}
+
+.textInput:focus {
+  outline: 0;
+  background-color: var(--primary);
+  color: var(--backgroundColor);
+}
+#submitButton {
+  font-size: larger;
+  border-radius: 110px;
+  background: var(--primary);
+  color: var(--backgroundColor);
+  height: 5vh;
+  width: 15vh;
+  border: 0;
+}
+.keypad {
+  height: 50%;
+  bottom: 0;
+  position: absolute;
+  width: 80%;
+}
+.keys {
+  margin: 0;
+  width: 33%;
+  height: 20%;
+  background: whitesmoke;
+  color: black;
+  padding: 5%;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+.one-line {
+  display: inline-block;
+}
+
+

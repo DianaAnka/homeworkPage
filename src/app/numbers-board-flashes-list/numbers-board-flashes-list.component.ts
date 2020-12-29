@@ -12,6 +12,7 @@ import {
   Output,
   Renderer2,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription, timer } from 'rxjs';
 import { takeWhile, tap, map, mergeMap, take } from 'rxjs/operators';
 
@@ -66,12 +67,6 @@ export class NumbersBoardFlashesListComponent implements OnInit {
    * the total time to render the list of numbers
    */
   time: number = 10000;
-
-  /**
-   * event fired after finish rendering all the list of numbers
-   */
-  @Output() onFinish = new EventEmitter<any>();
-
   /**
    * the current number from the list needed to be rendered
    */
@@ -79,7 +74,7 @@ export class NumbersBoardFlashesListComponent implements OnInit {
 
   currentIndex = 0;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private router: Router) {}
 
   /**
    * here we building timer observable that:
@@ -89,6 +84,12 @@ export class NumbersBoardFlashesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription$.add(this.exerciseTimerSub());
+
+    //timer To route the result component
+
+    setTimeout(() => {
+      this.router.navigateByUrl('result');
+    }, this.time);
   }
   exerciseTimerSub = () =>
     timer(0, this.timePerItem)
@@ -106,7 +107,6 @@ export class NumbersBoardFlashesListComponent implements OnInit {
       )
       .subscribe({
         next: (item) => (this.viewedValue = item),
-        complete: () => this.onFinish.emit(),
       });
 
   ngOnDestroy(): void {

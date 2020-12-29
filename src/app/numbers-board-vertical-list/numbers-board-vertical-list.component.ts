@@ -7,8 +7,11 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription, timer } from 'rxjs';
 import { map, scan, takeWhile, tap } from 'rxjs/operators';
+
+let time: string = '10000';
 
 @Component({
   selector: 'app-numbers-board-vertical-list',
@@ -21,17 +24,14 @@ import { map, scan, takeWhile, tap } from 'rxjs/operators';
         '* => *',
         [
           query('.item', style({ transform: 'translateY(-1000%)' })),
-          query(
-            '.item',
-            stagger('1000ms', [
-              animate(
-                '{{duration}}ms',
-                style({ transform: 'translateY(1000%)' })
-              ),
-            ])
-          ),
+          query('.item', [
+            animate(
+              '{{duration}}ms',
+              style({ transform: 'translateY(1000%)' })
+            ),
+          ]),
         ],
-        { params: { duration: 10000 } }
+        { params: { duration: time } }
       ),
     ]),
   ],
@@ -64,13 +64,8 @@ export class NumbersBoardVerticalListComponent implements OnInit {
   /**
    * the total time to render the list of numbers
    */
-  time: number = 20000;
-  timeAsString: string = this.time.toString();
-
-  /**
-   * event fired after finish rendering all the list of numbers
-   */
-  @Output() onFinish = new EventEmitter<any>();
+  // time = 20000;
+  timeAsString: string = time.toString();
 
   currentIndex = 0;
   backMovement = false;
@@ -80,7 +75,7 @@ export class NumbersBoardVerticalListComponent implements OnInit {
    */
   viewedList: any[];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   /**
    * here we building timer observable that:
@@ -91,6 +86,10 @@ export class NumbersBoardVerticalListComponent implements OnInit {
     this.subscription$.add(
       this.initValuesController(timer(0, this.timePerItem))
     );
+    //timer To route the result component
+    setTimeout(() => {
+      this.router.navigateByUrl('result');
+    }, 20000);
   }
   initValuesController(obs: Observable<any>) {
     return obs
@@ -130,11 +129,10 @@ export class NumbersBoardVerticalListComponent implements OnInit {
       )
       .subscribe({
         next: ({ list }) => (this.viewedList = list),
-        complete: () => this.onFinish.emit(),
       });
   }
   ngOnDestroy(): void {
-    this.subscription$.unsubscribe();
+    //  this.subscription$.unsubscribe();
   }
 
   /**
@@ -154,6 +152,6 @@ export class NumbersBoardVerticalListComponent implements OnInit {
    * getter that calculate and return time span between each item in the list for the givin time
    */
   get timePerItem() {
-    return this.time / this.list.length;
+    return parseFloat(time) / this.list.length;
   }
 }

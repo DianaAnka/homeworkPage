@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit, Output } from '@angular/core';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-main-interface',
@@ -17,10 +18,12 @@ export class MainInterfaceComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
+  /**
+   *choose between vertical board and flashes
+   **/
   login() {
     if (this.displayType == 'vertical') this.router.navigateByUrl('vertical');
     else if (this.displayType == 'flashes')
       this.router.navigateByUrl('flashes');
   }
-  onFinish() {}
 }
