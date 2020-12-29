@@ -23,7 +23,7 @@ import { map, scan, takeWhile, tap } from 'rxjs/operators';
           query('.item', style({ transform: 'translateY(-1000%)' })),
           query(
             '.item',
-            stagger('6000ms', [
+            stagger('1000ms', [
               animate(
                 '{{duration}}ms',
                 style({ transform: 'translateY(1000%)' })
