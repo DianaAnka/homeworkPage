@@ -1,6 +1,5 @@
 import { Router } from '@angular/router';
 import { Component, Injectable, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-main-interface',
