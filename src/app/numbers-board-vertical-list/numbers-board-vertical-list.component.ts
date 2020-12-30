@@ -6,7 +6,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription, timer } from 'rxjs';
 import { map, scan, takeWhile, tap } from 'rxjs/operators';
@@ -64,11 +64,9 @@ export class NumbersBoardVerticalListComponent implements OnInit {
   /**
    * the total time to render the list of numbers
    */
-  // time = 20000;
-  timeAsString: string = time.toString();
-
+  // time = '10000';
   currentIndex = 0;
-  backMovement = false;
+  // backMovement = false;
 
   /**
    * the current viewed list of numbers from the numbers list needed to be rendered
@@ -112,16 +110,16 @@ export class NumbersBoardVerticalListComponent implements OnInit {
          */
         scan(
           ({ list, previousLists }: any, current) => {
-            if (!this.backMovement) {
-              list.push(current);
-              if (list.length > 3) list.shift();
-              previousLists.push([...list]);
-            } else {
-              if (previousLists.length) {
-                previousLists.pop();
-                list = [...previousLists[previousLists.length - 1]];
-              }
-            }
+            // if (!this.backMovement) {
+            list.push(current);
+            if (list.length > 3) list.shift();
+            previousLists.push([...list]);
+            // } else {
+            //   if (previousLists.length) {
+            //     previousLists.pop();
+            //     list = [...previousLists[previousLists.length - 1]];
+            //   }
+            // }
 
             return { list, previousLists };
           },
@@ -133,6 +131,7 @@ export class NumbersBoardVerticalListComponent implements OnInit {
       });
   }
   ngOnDestroy(): void {
+    console.log('Destroyed');
     this.subscription$.unsubscribe();
   }
 
