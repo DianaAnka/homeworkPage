@@ -13,7 +13,7 @@ export class MainInterfaceComponent implements OnInit {
   variable to detrmaine the display type
 
 */
-  displayType: string = 'vertical';
+  displayType: string = 'flashes';
 
   constructor(private router: Router) {}
 
