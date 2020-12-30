@@ -22,8 +22,6 @@ export class MainInterfaceComponent implements OnInit {
    *choose between vertical board and flashes
    **/
   login() {
-    if (this.displayType == 'vertical') this.router.navigateByUrl('vertical');
-    else if (this.displayType == 'flashes')
-      this.router.navigateByUrl('flashes');
+    this.router.navigateByUrl(this.displayType);
   }
 }

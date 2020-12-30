@@ -6,7 +6,13 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription, timer } from 'rxjs';
 import { map, scan, takeWhile, tap } from 'rxjs/operators';
@@ -21,7 +27,7 @@ let time: string = '10000';
   animations: [
     trigger('itemsAnimation', [
       transition(
-        '* => *',
+        'void => *',
         [
           query('.item', style({ transform: 'translateY(-1000%)' })),
           query('.item', [
@@ -74,7 +80,7 @@ export class NumbersBoardVerticalListComponent implements OnInit {
   viewedList: any[];
 
   constructor(private router: Router) {}
-
+  myTimer: any;
   /**
    * here we building timer observable that:
    * emits the values to render from the list
@@ -85,9 +91,8 @@ export class NumbersBoardVerticalListComponent implements OnInit {
       this.initValuesController(timer(0, this.timePerItem))
     );
     //timer To route the result component
-    setTimeout(() => {
+    this.myTimer = setTimeout(() => {
       this.router.navigate(['result']);
-      console.log('Done');
     }, parseFloat(time));
   }
   initValuesController(obs: Observable<any>) {
@@ -131,7 +136,6 @@ export class NumbersBoardVerticalListComponent implements OnInit {
       });
   }
   ngOnDestroy(): void {
-    console.log('Destroyed');
     this.subscription$.unsubscribe();
   }
 

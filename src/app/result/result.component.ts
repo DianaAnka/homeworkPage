@@ -9,9 +9,7 @@ export class ResultComponent implements OnInit {
   answer: string = '';
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('result');
-  }
+  ngOnInit(): void {}
 
   //  get the answer from the child at each press
 
